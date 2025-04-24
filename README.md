@@ -11,7 +11,7 @@ The rapid development of photo-realistic face generation methods has raised sign
 
 ## Overview
 
-![Train Process](Overview.png)
+![Train Process](overview.png)
 
 ## News
 * **2025-04:** Codes of the MFCLIP model are released.
