@@ -243,30 +243,3 @@ def tokenize(texts: Union[str, List[str]], context_length: int = 77, truncate: b
         result[i, :len(tokens)] = torch.tensor(tokens)
 
     return result
-
-#a = ['a diagram','a gii']
-# text1 = 'a diagram'
-# text2 = 'a diafm'
-# result1 = tokenize(a).cuda()
-# result2 = tokenize(a).cuda()
-# # result = torch.cat((result1, result2), axis=0)
-# # print(result.shape)
-#
-# # for i,tokens in enumerate(result1):
-# #     print(tokens.shape)
-#
-# #t = _tokenizer.decode(result1)
-#
-# # a.append(result1.numpy())
-# # result2 = tokenize(text2)
-# # a.append(result2.numpy())
-# #c = torch.tensor(a).squeeze(dim=1).cuda()
-# x = torch.randn(2,3,224,224).cuda()
-# #print(t)
-# #c = torch.transpose(c, 1, 2)
-# model, _ = load('ViT-B/32')
-# model = model.to(torch.float32)
-# n,m = model(x,result1,result2)
-# print(n.shape)
-# print(result2.shape)
-# print(c.shape)

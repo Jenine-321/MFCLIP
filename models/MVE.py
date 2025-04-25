@@ -282,26 +282,19 @@ class MVE(nn.Module):
         numpy_array = img.detach().cpu().numpy()
         rich_patches = []
         rgb_images = []
-        # 对数组进行迭代，逐个取出并转换为灰度图像
         for i in range(numpy_array.shape[0]):
             image = numpy_array[i]
             image_rgb = cv2.resize(image, (224, 224))
             image_rgb = cv2.cvtColor(image_rgb, cv2.COLOR_BGR2RGB)
             arr_transposed = image_rgb.transpose((2, 0, 1))
-            # 然后，使用 np.expand_dims 增加批次维度
             arr_expanded = np.expand_dims(arr_transposed, axis=0)
-            # 最后，将NumPy数组转换为PyTorch张量
             image_tensor = torch.tensor(arr_expanded).float() / 255
             image_tensor = image_tensor.squeeze(0)
-            # image_tensor =train_transforms(img)
-            # Get the patches from the image
             rich_patch = Patch_Selector(image_tensor, patch_size= self.richest_patch_size)
             out = self.SRM(rich_patch).squeeze(0) # tensor 1,3,32,32
-            # print(simplest_patch )
             rich_patches.append(out.detach().cpu().numpy())
             rgb_images.append(image_rgb)
 
-            # 将灰度图像列表转换为张量，并增加维度为 (b, 1, 224, 224)
         img_rich_patches = torch.tensor(rich_patches).float().cuda()
         img_rgb_t = torch.tensor(rgb_images).cuda()
         img_rgb_t = img_rgb_t.permute(0, 3, 2, 1).float()
@@ -328,7 +321,6 @@ class MVE(nn.Module):
         x = self.to_cls_token(x[:, 0])
         x_srm = self.to_cls_token(x_srm[:, 0])
         img_noise_fusion = x + x_srm
-        #print(" img_noise_fusion.shape", img_noise_fusion.shape)
 
         return img_noise_fusion
 

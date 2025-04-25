@@ -309,14 +309,8 @@ class MFCLIP(nn.Module):
         x_text_level2 = self.token_embedding(text_level2)
         x_text_level3 = self.token_embedding(text_level3)
         x_text_level4 = self.token_embedding(text_level4)
-        #print("x_text_level1",x_text_level1.shape)
-        #print("x_text_level2", x_text_level2.shape)
 
         x = torch.cat((x_text_level1,x_text_level2,x_text_level3,x_text_level4),dim=1)
-        #print("x", x.shape)
-        #x = self.token_embedding(text)
-        #print(x.dtype)
-        #print("tokenembedding",x.shape)
 
         x = x + self.positional_embedding
         x = x.permute(1, 0, 2)  # NLD -> LND
@@ -324,8 +318,6 @@ class MFCLIP(nn.Module):
         x = x.permute(1, 0, 2)  # LND -> NLD
         x = self.ln_final(x)
 
-        # x.shape = [batch_size, n_ctx, transformer.width] #difface
-        # take features from the eot embedding (eot_token is the highest number in each sequence)
         x = x[torch.arange(x.shape[0]), text.argmax(dim=-1)] @ self.text_projection
 
         return x
