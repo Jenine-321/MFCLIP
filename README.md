@@ -69,12 +69,16 @@ MFCLIP
 ## Evaluate
 
 ## Citation
-
+If you find this work useful for your research, please consider citing the following:
 ```bibtex
-@article{zhang2024mfclip,
-  title={MFCLIP: Multi-modal Fine-grained CLIP for Generalizable Diffusion Face Forgery Detection},
+@ARTICLE{MFCLIP,
   author={Zhang, Yaning and Wang, Tianyi and Yu, Zitong and Gao, Zan and Shen, Linlin and Chen, Shengyong},
-  journal={arXiv preprint arXiv:2409.09724},
-  year={2024}
-}
+  journal={IEEE Transactions on Information Forensics and Security}, 
+  title={MFCLIP: Multi-Modal Fine-Grained CLIP for Generalizable Diffusion Face Forgery Detection}, 
+  year={2025},
+  volume={20},
+  number={},
+  pages={5888-5903},
+  doi={10.1109/TIFS.2025.3576577}}
+
 ```
