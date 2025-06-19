@@ -77,7 +77,6 @@ If you find this work useful for your research, please consider citing the follo
   title={MFCLIP: Multi-Modal Fine-Grained CLIP for Generalizable Diffusion Face Forgery Detection}, 
   year={2025},
   volume={20},
-  number={},
   pages={5888-5903},
   doi={10.1109/TIFS.2025.3576577}}
 
