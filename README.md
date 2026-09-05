@@ -34,9 +34,10 @@ conda install pytorch==2.0.1 torchvision==0.15.2 -c pytorch
 
 pip install -r requirements.txt
 ```
-
-
-
+## Datasets
+GenFace dataset can be downloaded using <a href="https://pan.baidu.com/s/1J6JRRcYeEV9mdnNa9REp3Q?pwd=vx7j">
+   Baidu Drive 
+  </a>.
 
 
 ## Train
